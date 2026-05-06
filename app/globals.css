@@ -1,26 +1,133 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f4f4f2;
+  --fg: #1b1f23;
+  --muted: #6b7177;
+  --hairline: #d8d8d5;
+  --accent: #9fb8c8;
+  --accent-strong: #6c8a9b;
+  --black: #000000;
+  --warning: #c45a3b;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-hairline: var(--hairline);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-warning: var(--warning);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "JetBrains Mono", monospace;
+  --radius-none: 0px;
+  --radius-sm: 2px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--hairline);
 }
 
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "ss02", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* Hairline rule used across cards / sections */
+.hairline {
+  border-top: 1px solid var(--hairline);
+}
+
+/* Mono datapoint — used for prices, GPS, altitudes */
+.dp {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+/* Eyebrow uppercase */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Display H1 */
+.display {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+
+/* Markdown body — used inside excursion detail */
+.prose-sur41 h3 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--hairline);
+}
+.prose-sur41 h4 {
+  font-weight: 500;
+  font-size: 1.125rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.prose-sur41 p {
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  max-width: 68ch;
+}
+.prose-sur41 strong {
+  font-weight: 600;
+  color: var(--fg);
+}
+.prose-sur41 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+.prose-sur41 ul li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  max-width: 68ch;
+}
+.prose-sur41 ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 8px;
+  height: 1px;
+  background: var(--muted);
+}
+.prose-sur41 a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-strong);
+  text-underline-offset: 3px;
+}
+.prose-sur41 a:hover {
+  color: var(--accent-strong);
 }
