@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Lang } from "@/lib/excursions";
 import { getDictionary } from "@/lib/dictionaries";
 
@@ -5,6 +6,17 @@ export function Hero({ lang, count }: { lang: Lang; count: number }) {
   const t = getDictionary(lang);
   return (
     <section className="border-b border-hairline bg-bg">
+      <div className="relative w-full aspect-[21/9] md:aspect-[21/8] border-b border-hairline overflow-hidden bg-fg/5">
+        <Image
+          src="/images/cover-home.jpg"
+          alt="Bariloche, lake Nahuel Huapi"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover grayscale-[10%]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg/40" />
+      </div>
       <div className="mx-auto max-w-[1280px] px-6 lg:px-12 pt-16 pb-12 md:pt-24 md:pb-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
           <div className="md:col-span-8">

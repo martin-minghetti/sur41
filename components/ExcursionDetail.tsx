@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Excursion, Lang } from "@/lib/excursions";
@@ -112,7 +113,28 @@ function DetailHero({ lang, fm }: { lang: Lang; fm: Excursion["fm"] }) {
   const t = getDictionary(lang);
   return (
     <section className="border-b border-hairline bg-bg">
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-12 pt-16 pb-12 md:pt-20 md:pb-16">
+      <div className="relative w-full aspect-[16/8] md:aspect-[21/8] border-b border-hairline overflow-hidden bg-fg/5">
+        <Image
+          src={`/images/${fm.slug}.jpg`}
+          alt={fm.title}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover grayscale-[8%]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg/30" />
+        <div className="absolute bottom-4 left-6 right-6 lg:left-12 lg:right-12 flex justify-between items-end">
+          <span className="dp text-[11px] uppercase tracking-[0.18em] text-bg bg-black/55 backdrop-blur-sm px-2 py-1">
+            {fm.slug} · 41°S
+          </span>
+          {fm.promo ? (
+            <span className="dp text-[11px] uppercase tracking-[0.18em] text-bg bg-accent-strong px-2 py-1">
+              {fm.promo}
+            </span>
+          ) : null}
+        </div>
+      </div>
+      <div className="mx-auto max-w-[1280px] px-6 lg:px-12 pt-12 pb-10 md:pt-16 md:pb-14">
         <Link
           href={`/${lang}#catalogo`}
           className="eyebrow hover:text-fg transition-colors inline-block mb-6"
@@ -121,7 +143,6 @@ function DetailHero({ lang, fm }: { lang: Lang; fm: Excursion["fm"] }) {
         </Link>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-8">
-            <p className="eyebrow mb-4 dp">{fm.slug.toUpperCase()} · 41°S</p>
             <h1 className="display text-[36px] md:text-[56px] lg:text-[64px] text-fg">
               {fm.title}
             </h1>
@@ -133,11 +154,6 @@ function DetailHero({ lang, fm }: { lang: Lang; fm: Excursion["fm"] }) {
                 {t.excursion.ars} {formatPrice(fm.price_ars)}
               </span>
             </div>
-            {fm.promo ? (
-              <p className="dp text-[10px] text-accent-strong mt-2 uppercase tracking-[0.18em]">
-                {fm.promo}
-              </p>
-            ) : null}
           </div>
         </div>
       </div>
