@@ -1,5 +1,8 @@
 /* eslint-disable no-console */
-import "dotenv/config";
+import dotenv from "dotenv";
+dotenv.config({ path: ".env.local" });
+dotenv.config();
+
 import { neon } from "@neondatabase/serverless";
 
 async function main(): Promise<void> {
