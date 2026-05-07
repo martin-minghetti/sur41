@@ -42,13 +42,11 @@ export default async function SimulatedCheckoutPage({
     <article className="bg-bg">
       <section className="border-b border-hairline">
         <div className="mx-auto max-w-[760px] px-6 lg:px-12 pt-16 pb-10">
-          <p className="eyebrow mb-4">SIMULATED MODE · NO REAL CHARGE</p>
+          <p className="eyebrow mb-4">{t.simulated.eyebrow}</p>
           <h1 className="display text-[32px] md:text-[44px] text-fg">
-            Confirmar pago
+            {t.simulated.title}
           </h1>
-          <p className="mt-3 text-sm text-muted max-w-md">
-            Modo demo: este checkout no procesa un pago real. Confirmá para simular el flujo completo (booking marcado como pagado, email de confirmación enviado).
-          </p>
+          <p className="mt-3 text-sm text-muted max-w-md">{t.simulated.sub}</p>
         </div>
       </section>
 
@@ -56,7 +54,7 @@ export default async function SimulatedCheckoutPage({
         <div className="mx-auto max-w-[760px] px-6 lg:px-12 py-10">
           <div className="border border-hairline bg-bg">
             <div className="px-5 py-4 border-b border-hairline flex items-baseline justify-between">
-              <p className="eyebrow">Detalle</p>
+              <p className="eyebrow">{t.simulated.detail}</p>
               <span className="dp text-[10px] text-muted">
                 {booking.id.slice(0, 8).toUpperCase()}
               </span>
@@ -66,9 +64,9 @@ export default async function SimulatedCheckoutPage({
             <Row label={t.booking.people.toUpperCase()} value={String(booking.people)} mono />
             <Row label="EMAIL" value={booking.customerEmail} />
             <div className="border-t border-hairline px-5 py-4 flex items-baseline justify-between">
-              <span className="eyebrow">TOTAL</span>
+              <span className="eyebrow">{t.simulated.total}</span>
               <span className="dp text-2xl font-semibold">
-                AR$ {formatPrice(booking.totalArs)}
+                {t.excursion.ars} {formatPrice(booking.totalArs)}
               </span>
             </div>
 
@@ -83,19 +81,19 @@ export default async function SimulatedCheckoutPage({
                 type="submit"
                 className="w-full bg-fg text-bg py-4 px-4 text-sm uppercase tracking-[0.16em] font-medium hover:bg-accent-strong transition-colors"
               >
-                Confirmar pago simulado
+                {t.simulated.confirm}
               </button>
             </form>
             <Link
               href={`/${lang}/checkout/error?orderId=${orderId}&reason=cancelled`}
               className="block text-center px-5 py-3 text-xs text-muted hover:text-fg uppercase tracking-[0.16em] border-t border-hairline"
             >
-              Cancelar
+              {t.simulated.cancel}
             </Link>
           </div>
 
           <p className="mt-4 text-xs text-muted text-center">
-            En producción esta pantalla redirige a Mercado Pago Checkout Pro.
+            {t.simulated.footnote}
           </p>
         </div>
       </section>

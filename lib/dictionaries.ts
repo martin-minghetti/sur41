@@ -60,6 +60,24 @@ const DICTIONARIES = {
       success: "Consulta enviada. Te contactamos pronto.",
       error: "No pudimos enviar la consulta. Probá de nuevo.",
     },
+    home_aside: {
+      excursions: "EXCURSIONES",
+      currency: "MONEDA",
+      avgTemp: "TEMP. PROM.",
+    },
+    detail: {
+      addon: "+ Adicional",
+    },
+    simulated: {
+      eyebrow: "SIMULATED MODE · NO REAL CHARGE",
+      title: "Confirmar pago",
+      sub: "Modo demo: este checkout no procesa un pago real. Confirmá para simular el flujo completo (booking marcado como pagado, email de confirmación enviado).",
+      detail: "Detalle",
+      total: "TOTAL",
+      confirm: "Confirmar pago simulado",
+      cancel: "Cancelar",
+      footnote: "En producción esta pantalla redirige a Mercado Pago Checkout Pro.",
+    },
   },
   en: {
     nav: {
@@ -118,6 +136,24 @@ const DICTIONARIES = {
       success: "Request sent. We’ll reach out soon.",
       error: "Could not send the request. Please retry.",
     },
+    home_aside: {
+      excursions: "EXCURSIONS",
+      currency: "CURRENCY",
+      avgTemp: "AVG. TEMP",
+    },
+    detail: {
+      addon: "+ Optional",
+    },
+    simulated: {
+      eyebrow: "SIMULATED MODE · NO REAL CHARGE",
+      title: "Confirm payment",
+      sub: "Demo mode: this checkout does not process a real payment. Confirm to simulate the full flow (booking marked as paid, confirmation email dispatched).",
+      detail: "Details",
+      total: "TOTAL",
+      confirm: "Confirm simulated payment",
+      cancel: "Cancel",
+      footnote: "In production this screen redirects to Mercado Pago Checkout Pro.",
+    },
   },
   "pt-br": {
     nav: {
@@ -175,6 +211,24 @@ const DICTIONARIES = {
       sending: "Enviando…",
       success: "Pedido enviado. Entraremos em contato em breve.",
       error: "Nao conseguimos enviar. Tente novamente.",
+    },
+    home_aside: {
+      excursions: "EXCURSOES",
+      currency: "MOEDA",
+      avgTemp: "TEMP. MED.",
+    },
+    detail: {
+      addon: "+ Adicional",
+    },
+    simulated: {
+      eyebrow: "SIMULATED MODE · NO REAL CHARGE",
+      title: "Confirmar pagamento",
+      sub: "Modo demo: este checkout nao processa um pagamento real. Confirme para simular o fluxo completo (reserva marcada como paga, e-mail de confirmacao enviado).",
+      detail: "Detalhes",
+      total: "TOTAL",
+      confirm: "Confirmar pagamento simulado",
+      cancel: "Cancelar",
+      footnote: "Em producao esta tela redireciona para Mercado Pago Checkout Pro.",
     },
   },
 } as const;

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Lang } from "@/lib/excursions";
-import { LANGS } from "@/lib/excursions";
 import { getDictionary } from "@/lib/dictionaries";
+import { LangSwitcher } from "./LangSwitcher";
 
 export function Header({ lang }: { lang: Lang }) {
   const t = getDictionary(lang);
@@ -24,36 +24,23 @@ export function Header({ lang }: { lang: Lang }) {
           </span>
         </Link>
 
-        <nav className="flex items-center gap-6">
+        <nav className="flex items-center gap-5">
           <Link
             href={`/${lang}#catalogo`}
-            className="hidden sm:inline text-sm text-fg hover:text-accent-strong transition-colors"
+            className="hidden sm:inline font-mono text-[11px] tracking-[0.16em] uppercase text-fg hover:text-accent-strong transition-colors"
           >
             {t.nav.excursions}
           </Link>
           <a
             href="#contacto"
-            className="hidden sm:inline text-sm text-fg hover:text-accent-strong transition-colors"
+            className="hidden sm:inline font-mono text-[11px] tracking-[0.16em] uppercase text-fg hover:text-accent-strong transition-colors"
           >
             {t.nav.contact}
           </a>
 
-          <ul className="flex items-center gap-1 font-mono text-[11px] tracking-[0.16em] uppercase">
-            {LANGS.map((l) => (
-              <li key={l}>
-                <Link
-                  href={`/${l}`}
-                  className={`px-2 py-1 ${
-                    l === lang
-                      ? "text-fg border-b border-fg"
-                      : "text-muted hover:text-fg"
-                  }`}
-                >
-                  {l}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <span className="hidden sm:inline w-px h-3 bg-hairline" />
+
+          <LangSwitcher current={lang} />
         </nav>
       </div>
     </header>

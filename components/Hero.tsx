@@ -32,11 +32,11 @@ export function Hero({ lang, count }: { lang: Lang; count: number }) {
             <DataRow label="LAT" value="41°08′32″S" />
             <DataRow label="ALT" value="893 M" />
             <DataRow
-              label="EXCURSIONES"
+              label={t.home_aside.excursions}
               value={String(count).padStart(2, "0")}
             />
-            <DataRow label="MONEDA" value="ARS" />
-            <DataRow label="TEMP. PROM." value="11.5 °C" />
+            <DataRow label={t.home_aside.currency} value="ARS" />
+            <DataRow label={t.home_aside.avgTemp} value="11.5 °C" />
           </aside>
         </div>
       </div>

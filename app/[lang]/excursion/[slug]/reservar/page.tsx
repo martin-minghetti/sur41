@@ -9,6 +9,11 @@ import {
   type Lang,
 } from "@/lib/excursions";
 import { getDictionary } from "@/lib/dictionaries";
+import {
+  translateDifficulty,
+  translatePayment,
+  translateSchedule,
+} from "@/lib/translate-fields";
 import type { Metadata } from "next";
 
 export const dynamic = "force-static";
@@ -115,7 +120,7 @@ export default async function ReservarPage({
               {excursion.fm.difficulty ? (
                 <FactRow
                   label={t.excursion.difficulty}
-                  value={excursion.fm.difficulty}
+                  value={translateDifficulty(excursion.fm.difficulty, lang as Lang)}
                 />
               ) : null}
               {excursion.fm.min_age ? (
@@ -127,13 +132,13 @@ export default async function ReservarPage({
               {excursion.fm.schedule ? (
                 <FactRow
                   label={t.excursion.schedule}
-                  value={excursion.fm.schedule}
+                  value={translateSchedule(excursion.fm.schedule, lang as Lang)}
                 />
               ) : null}
               {excursion.fm.payment ? (
                 <FactRow
                   label={t.excursion.payment}
-                  value={excursion.fm.payment}
+                  value={translatePayment(excursion.fm.payment, lang as Lang)}
                 />
               ) : null}
             </div>

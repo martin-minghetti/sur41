@@ -1,11 +1,11 @@
 import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import { LANGS as _LANGS, DEFAULT_LANG as _DEFAULT, type Lang as _Lang } from "./i18n";
 
-export type Lang = "es" | "en" | "pt-br";
-
-export const LANGS: Lang[] = ["es", "en", "pt-br"];
-export const DEFAULT_LANG: Lang = "es";
+export type Lang = _Lang;
+export const LANGS = _LANGS;
+export const DEFAULT_LANG = _DEFAULT;
 
 export type OptionalAddon = { name: string; price_ars: number };
 

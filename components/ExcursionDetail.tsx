@@ -5,6 +5,11 @@ import remarkGfm from "remark-gfm";
 import type { Excursion, Lang } from "@/lib/excursions";
 import { formatPrice } from "@/lib/excursions";
 import { getDictionary } from "@/lib/dictionaries";
+import {
+  translateDifficulty,
+  translatePayment,
+  translateSchedule,
+} from "@/lib/translate-fields";
 
 export function ExcursionDetail({
   excursion,
@@ -39,21 +44,34 @@ export function ExcursionDetail({
                 </span>
               </div>
               <FactRow label={t.excursion.duration} value={formatDuration(fm, t)} />
-              <FactRow label={t.excursion.difficulty} value={fm.difficulty || t.excursion.consult} />
+              <FactRow
+                label={t.excursion.difficulty}
+                value={fm.difficulty ? translateDifficulty(fm.difficulty, lang) : t.excursion.consult}
+              />
               <FactRow
                 label={t.excursion.minAge}
                 value={fm.min_age ? `${fm.min_age}+` : t.excursion.consult}
               />
-              {fm.schedule ? <FactRow label={t.excursion.schedule} value={fm.schedule} /> : null}
+              {fm.schedule ? (
+                <FactRow
+                  label={t.excursion.schedule}
+                  value={translateSchedule(fm.schedule, lang)}
+                />
+              ) : null}
               {fm.departure_point ? (
                 <FactRow label={t.excursion.meetingPoint} value={fm.departure_point} />
               ) : null}
-              {fm.payment ? <FactRow label={t.excursion.payment} value={fm.payment} /> : null}
+              {fm.payment ? (
+                <FactRow
+                  label={t.excursion.payment}
+                  value={translatePayment(fm.payment, lang)}
+                />
+              ) : null}
               {fm.promo ? <FactRow label={t.excursion.promo} value={fm.promo} /> : null}
 
               {fm.optional && fm.optional.length > 0 ? (
                 <div className="border-t border-hairline px-5 py-4">
-                  <p className="eyebrow mb-2">+ Adicional</p>
+                  <p className="eyebrow mb-2">{t.detail.addon}</p>
                   {fm.optional.map((o) => (
                     <div key={o.name} className="flex justify-between text-sm">
                       <span>{o.name}</span>
