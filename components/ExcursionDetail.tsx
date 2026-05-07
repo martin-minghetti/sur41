@@ -66,12 +66,12 @@ export function ExcursionDetail({
               ) : null}
 
               <div className="border-t border-hairline p-5">
-                <a
-                  href={`mailto:reservas@sur41.example?subject=${encodeURIComponent(`Consulta · ${fm.title}`)}`}
+                <Link
+                  href={`/${lang}/excursion/${fm.slug}/reservar`}
                   className="block text-center bg-fg text-bg py-3 px-4 text-sm hover:bg-accent-strong transition-colors uppercase tracking-[0.16em] font-medium"
                 >
                   {t.excursion.reserve}
-                </a>
+                </Link>
                 <Link
                   href={`/${lang}#catalogo`}
                   className="block text-center mt-3 text-xs text-muted hover:text-fg uppercase tracking-[0.16em]"
